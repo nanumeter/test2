@@ -55,6 +55,8 @@ function getData() {
         arrayX.push(x);
         arrayY.push(y);
         arrayZ.push(z);
+
+        arrayY1.push(y);
     }
 
     for (let yi = 0; yi <= interceptY; yi += 1) {
@@ -65,6 +67,8 @@ function getData() {
         arrayX.push(x);
         arrayY.push(y);
         arrayZ.push(z);
+
+        //arrayZ1.push(z);
     }
 
 
@@ -76,6 +80,8 @@ function getData() {
         arrayX.push(x);
         arrayY.push(y);
         arrayZ.push(z);
+
+        //arrayX1.push(x);
     }
 
 
