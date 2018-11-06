@@ -4,6 +4,25 @@ var layout = {
         r: 0,
         b: 0,
         t: 0
+    },
+    scene: {
+        camera: {
+            up: {
+                x: 0,
+                y: 0,
+                z: 0
+            },
+            center: {
+                x: 0,
+                y: 0,
+                z: 0
+            },
+            eye: {
+                x: 2,
+                y: 1.5,
+                z: 0.5
+            }
+        }
     }
 };
 var config = {
@@ -28,34 +47,24 @@ function getData() {
         interceptX = Math.floor(Math.random() * (100 - 50 + 1)) + 50;
         interceptY = Math.floor(Math.random() * (100 - 10 + 1)) + 10;
         interceptZ = Math.floor(Math.random() * (100 - 10 + 1)) + 10;
-
     } else if (Math.random() >= 0.33) {
         interceptX = Math.floor(Math.random() * (100 - 10 + 1)) + 10;
         interceptY = Math.floor(Math.random() * (100 - 50 + 1)) + 50;
         interceptZ = Math.floor(Math.random() * (100 - 10 + 1)) + 10;
-
     } else {
         interceptX = Math.floor(Math.random() * (100 - 10 + 1)) + 10;
         interceptY = Math.floor(Math.random() * (100 - 10 + 1)) + 10;
         interceptZ = Math.floor(Math.random() * (100 - 50 + 1)) + 50;
     }
 
-    let arrayX1 = [];
-    let arrayY1 = [];
-    let arrayZ1 = [];
-
-    for (let x = 1; x < interceptX; x += 1) {
-        for (let y = 1; y < interceptY; y += 1) {
-            for (let z = 1; z < interceptZ; z += 1) {
-                let xP = (1 - (y / interceptY) - (z / interceptZ)) * interceptX;
-                let yP = (1 - (x / interceptX) - (z / interceptZ)) * interceptY;
-                let zP = (1 - (y / interceptY) - (x / interceptX)) * interceptZ;
-
-                if (xP > 0 && yP > 0 && zP > 0) {
-                    arrayX.push(xP.toFixed(1));
-                    arrayY.push(yP.toFixed(1));
-                    arrayZ.push(zP.toFixed(1));
-                    break;
+    for (let x = 0; x < interceptX; x += 1) {
+        for (let y = 0; y < interceptY; y += 1) {
+            for (let z = 0; z < interceptZ; z += 1) {
+                let result = Number((x / interceptX).toFixed(2)) + Number((y / interceptY).toFixed(2)) + Number((z / interceptZ).toFixed(2));
+                if (result > 0.99 && result < 1.01) {
+                    arrayX.push(x);
+                    arrayY.push(y);
+                    arrayZ.push(z);
                 }
 
             }
