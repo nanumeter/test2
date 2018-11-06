@@ -61,7 +61,7 @@ function getData() {
         for (let y = 0; y < interceptY; y += 1) {
             for (let z = 0; z < interceptZ; z += 1) {
                 let result = Number((x / interceptX).toFixed(2)) + Number((y / interceptY).toFixed(2)) + Number((z / interceptZ).toFixed(2));
-                if (result > 0.99 && result < 1.01) {
+                if (result > 0.98 && result < 1.02) {
                     arrayX.push(x);
                     arrayY.push(y);
                     arrayZ.push(z);
