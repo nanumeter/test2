@@ -7,18 +7,8 @@ var layout = {
     },
     scene: {
         camera: {
-            up: {
-                x: 0,
-                y: 0,
-                z: 0
-            },
-            center: {
-                x: 0,
-                y: 0,
-                z: 0
-            },
             eye: {
-                x: 2,
+                x: 1,
                 y: 1.5,
                 z: 0.5
             }

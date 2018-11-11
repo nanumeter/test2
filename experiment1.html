@@ -13,14 +13,50 @@
 
 <body>
     <div>
-        <div>
-            <span>행동경제학적 프로파일링 실험-실험1</span>
+        <div class="header">
+            <span class="header_title">행동경제학적 프로파일링 실험-1</span>
+            <a href="index.html">Login</a>
+            <a href="experiment1.html">실험1</a>
+            <a href="experiment2.html">실험2</a>
         </div>
-        <div>
-            <div id="myDiv" class="col">
+        <div class="row main">
+            <div id="myDiv" class="column chart"></div>
+            <div class="column controller">
+                <div>
+                    <div class="pod_title">
+                        <span>배당확률</span>
+                    </div>
+                    <div class="pod_x">
+                        <span>X1</span>
+                        <input type="text" value="0.500" />
+                    </div>
+                    <div class="pod_x">
+                        <span>X2</span>
+                        <input type="text" value="0.500" />
+                    </div>
+                </div>
+
+                <div>
+                    <div class="pod_title">
+                        <span>주식별 배당 토큰</span>
+                    </div>
+                    <div class="podt_x">
+                        <span>X1</span>
+                        <input type="text" value="0.500" />
+                    </div>
+                    <div class="podt_x">
+                        <span>X2</span>
+                        <input type="text" value="0.500" />
+                    </div>
+                </div>
+
+                <div class="pod_result">
+                    <span>13/50</span>
+                    <button class="bt_result">결정</button>
+                </div>
             </div>
         </div>
-        <div>
+        <div class="row footer">
             <span>time</span>
         </div>
     </div>

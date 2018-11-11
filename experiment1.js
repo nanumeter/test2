@@ -1,6 +1,5 @@
 var layout = {
-    "width": 500,
-    "height": 500,
+    height: "600px",
     hovermode: 'closest',
     clickmode: "event+select",
     yaxis: {
@@ -45,22 +44,7 @@ function getData() {
     let trace1 = {
         x: arrayX,
         y: arrayY,
-        z: arrayZ,
-        mode: 'markers',
-        marker: {
-            color: '#1f77b4',
-            size: 1,
-            symbol: 'circle',
-            line: {
-                color: 'rgb(0,0,0)',
-                width: 0
-            }
-        },
-        line: {
-            color: '#1f77b4',
-            width: 5
-        },
-        type: 'scatter3d'
+        type: 'scatter'
     };
 
     let data = [trace1];
