@@ -1,4 +1,5 @@
 var layout = {
+    height: "600px",
     margin: {
         l: 0,
         r: 0,
