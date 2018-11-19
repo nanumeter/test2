@@ -53,3 +53,12 @@ function getData() {
 }
 
 const plotly = Plotly.newPlot('myDiv', getData(), layout, config);
+var myPlot = document.getElementById('myDiv')
+myPlot.on('plotly_click', function (data) {
+    var pts = '';
+    for (var i = 0; i < data.points.length; i++) {
+        pts = 'x = ' + data.points[i].x.toFixed(2) + '\ny = ' +
+            data.points[i].y.toFixed(2) + '\n\n';
+    }
+    alert('Closest point clicked:\n\n' + pts);
+});
