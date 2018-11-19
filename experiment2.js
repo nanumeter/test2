@@ -1,5 +1,6 @@
 var layout = {
     height: "600px",
+    dragmode: false,
     margin: {
         l: 0,
         r: 0,

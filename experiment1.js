@@ -2,6 +2,7 @@ var layout = {
     height: "600px",
     hovermode: 'closest',
     clickmode: "event+select",
+    dragmode: false,
     yaxis: {
         title: "X2",
         fixedrange: true,
