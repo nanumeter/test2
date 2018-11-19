@@ -1,6 +1,8 @@
 var layout = {
     height: "600px",
     dragmode: false,
+    hovermode: 'closest',
+    clickmode: "event+select",
     margin: {
         l: 0,
         r: 0,
