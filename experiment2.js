@@ -1,7 +1,7 @@
 var layout = {
     height: "600px",
     dragmode: false,
-    hovermode: 'closest',
+    hovermode: "closest",
     clickmode: "event+select",
     margin: {
         l: 0,
@@ -17,6 +17,21 @@ var layout = {
                 z: 1.5
             }
         }
+    },
+    yaxis: {
+        title: "X2",
+        fixedrange: true,
+        range: [0, 100]
+    },
+    xaxis: {
+        title: "X1",
+        fixedrange: true,
+        range: [0, 100]
+    },
+    zaxis: {
+        title: "Z1",
+        fixedrange: true,
+        range: [0, 100]
     }
 };
 var config = {
@@ -98,8 +113,69 @@ var myPlot = document.getElementById('myDiv')
 myPlot.on('plotly_click', function (data) {
     var pts = '';
     for (var i = 0; i < data.points.length; i++) {
-        pts = 'x = ' + data.points[i].x.toFixed(2) + '\ny = ' +
+        pts = 'x=' + data.points[i].x.toFixed(2) + '\ny=' +
             data.points[i].y.toFixed(2) + '\nz= ' + data.points[i].z.toFixed(2) + '\n\n';
     }
-    alert('Closest point clicked:\n\n' + pts);
+    //alert('Closest point clicked:\n\n' + pts);
+    console.log('plotly_click:\n\n' + pts);
 });
+
+let isTouched = false;
+myPlot.on('plotly_hover', function (data) {
+    // do something;
+    if (isTouched) {
+        isTouched = false;
+        var pts = '';
+        for (var i = 0; i < data.points.length; i++) {
+            pts = 'x=' + data.points[i].x.toFixed(2) + '\ny=' +
+                data.points[i].y.toFixed(2) + '\nz= ' + data.points[i].z.toFixed(2) + '\n\n';
+        }
+        console.log('plotly_hover:\n\n' + pts);
+    }
+});
+
+myPlot.addEventListener('touchenter', (event) => PlotlyPage.touchHandler(event));
+myPlot.addEventListener('touchleave', (event) => PlotlyPage.touchHandler(event));
+myPlot.addEventListener('touchstart', (event) => touchHandler(event));
+myPlot.addEventListener('touchmove', (event) => touchHandler(event));
+myPlot.addEventListener('touchend', (event) => touchHandler(event));
+
+function touchHandler(event) {
+    //console.log(`touchHandler triggered for event ${event.type}`);
+    var touches = event.changedTouches,
+        first = touches[0],
+        type = "";
+    switch (event.type) {
+        case "touchenter":
+            type = "mouseover";
+            break;
+        case "touchleave":
+            type = "mouseout";
+            break;
+        case "touchstart":
+            type = "mousedown";
+            isTouched = true;
+            break;
+        case "touchmove":
+            type = "mousemove";
+            break;
+        case "touchend":
+            type = "mouseup";
+            break;
+        default:
+            return;
+    }
+
+    var opts = {
+        bubbles: true,
+        screenX: first.screenX,
+        screenY: first.screenY,
+        clientX: first.clientX,
+        clientY: first.clientY,
+    };
+
+    var simulatedEvent = new MouseEvent(type, opts);
+
+    first.target.dispatchEvent(simulatedEvent);
+    event.preventDefault();
+}

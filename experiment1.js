@@ -2,6 +2,7 @@ var layout = {
     height: "600px",
     hovermode: 'closest',
     clickmode: "event+select",
+    clickselectmode: "single",
     dragmode: false,
     yaxis: {
         title: "X2",
@@ -57,8 +58,9 @@ var myPlot = document.getElementById('myDiv')
 myPlot.on('plotly_click', function (data) {
     var pts = '';
     for (var i = 0; i < data.points.length; i++) {
-        pts = 'x = ' + data.points[i].x.toFixed(2) + '\ny = ' +
+        pts = 'x=' + data.points[i].x.toFixed(2) + '\ny=' +
             data.points[i].y.toFixed(2) + '\n\n';
     }
-    alert('Closest point clicked:\n\n' + pts);
+    //alert('Closest point clicked:\n\n' + pts);
+    console.log('plotly_click:\n\n' + pts);
 });
