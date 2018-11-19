@@ -109,12 +109,19 @@ function getData() {
 
 const plotly = Plotly.newPlot('myDiv', getData(), layout, config);
 
-var myPlot = document.getElementById('myDiv')
+var myPlot = document.getElementById('myDiv');
+var x_value = document.getElementById("x_value");
+var y_value = document.getElementById("y_value");
+var z_value = document.getElementById("z_value");
+
 myPlot.on('plotly_click', function (data) {
     var pts = '';
     for (var i = 0; i < data.points.length; i++) {
         pts = 'x=' + data.points[i].x.toFixed(2) + '\ny=' +
             data.points[i].y.toFixed(2) + '\nz= ' + data.points[i].z.toFixed(2) + '\n\n';
+            x_value.value = data.points[i].x.toFixed(2);
+            y_value.value = data.points[i].y.toFixed(2);
+            z_value.value = data.points[i].z.toFixed(2);
     }
     //alert('Closest point clicked:\n\n' + pts);
     console.log('plotly_click:\n\n' + pts);
@@ -129,6 +136,9 @@ myPlot.on('plotly_hover', function (data) {
         for (var i = 0; i < data.points.length; i++) {
             pts = 'x=' + data.points[i].x.toFixed(2) + '\ny=' +
                 data.points[i].y.toFixed(2) + '\nz= ' + data.points[i].z.toFixed(2) + '\n\n';
+                x_value.value = data.points[i].x.toFixed(2);
+                y_value.value = data.points[i].y.toFixed(2);
+                z_value.value = data.points[i].z.toFixed(2);
         }
         console.log('plotly_hover:\n\n' + pts);
     }
