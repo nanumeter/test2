@@ -1,4 +1,3 @@
-
 var layout = {
     height: "600px",
     dragmode: false,
@@ -17,22 +16,22 @@ var layout = {
                 y: 1.5,
                 z: 1.5
             }
+        },
+        xaxis: {
+            title: "X1",
+            nticks: 1,
+            range: [0, 100]
+        },
+        yaxis: {
+            title: "X2",
+            nticks: 1,
+            range: [0, 100]
+        },
+        zaxis: {
+            title: "Z1",
+            nticks: 1,
+            range: [0, 100]
         }
-    },
-    yaxis: {
-        title: "X2",
-        fixedrange: true,
-        range: [0, 100]
-    },
-    xaxis: {
-        title: "X1",
-        fixedrange: true,
-        range: [0, 100]
-    },
-    zaxis: {
-        title: "Z1",
-        fixedrange: true,
-        range: [0, 100]
     }
 };
 var config = {
@@ -120,9 +119,9 @@ myPlot.on('plotly_click', function (data) {
     for (var i = 0; i < data.points.length; i++) {
         pts = 'x=' + data.points[i].x.toFixed(2) + '\ny=' +
             data.points[i].y.toFixed(2) + '\nz= ' + data.points[i].z.toFixed(2) + '\n\n';
-            x_value.value = data.points[i].x.toFixed(2);
-            y_value.value = data.points[i].y.toFixed(2);
-            z_value.value = data.points[i].z.toFixed(2);
+        x_value.value = data.points[i].x.toFixed(2);
+        y_value.value = data.points[i].y.toFixed(2);
+        z_value.value = data.points[i].z.toFixed(2);
     }
     //alert('Closest point clicked:\n\n' + pts);
     console.log('plotly_click:\n\n' + pts);
@@ -137,9 +136,9 @@ myPlot.on('plotly_hover', function (data) {
         for (var i = 0; i < data.points.length; i++) {
             pts = 'x=' + data.points[i].x.toFixed(2) + '\ny=' +
                 data.points[i].y.toFixed(2) + '\nz= ' + data.points[i].z.toFixed(2) + '\n\n';
-                x_value.value = data.points[i].x.toFixed(2);
-                y_value.value = data.points[i].y.toFixed(2);
-                z_value.value = data.points[i].z.toFixed(2);
+            x_value.value = data.points[i].x.toFixed(2);
+            y_value.value = data.points[i].y.toFixed(2);
+            z_value.value = data.points[i].z.toFixed(2);
         }
         console.log('plotly_hover:\n\n' + pts);
     }
