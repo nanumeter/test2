@@ -28,7 +28,7 @@ var layout = {
             range: [0, 100]
         },
         zaxis: {
-            title: "Z1",
+            title: "X3",
             nticks: 1,
             range: [0, 100]
         }
