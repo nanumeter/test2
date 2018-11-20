@@ -3,13 +3,18 @@ var layout = {
     dragmode: false,
     hovermode: "closest",
     clickmode: "event+select",
-
+    margin: {
+        l: 0,
+        r: 0,
+        b: 0,
+        t: 0
+    },
     scene: {
         camera: {
             eye: {
-                x: 1,
-                y: 1,
-                z: 1
+                x: 1.5,
+                y: 1.5,
+                z: 1.5
             }
         },
         xaxis: {
@@ -26,13 +31,7 @@ var layout = {
             title: "X3",
             nticks: 10,
             range: [0, 100]
-        },
-        margin: {
-            l: 0,
-            r: 0,
-            b: 0,
-            t: 0
-        },
+        }
     }
 };
 var config = {
